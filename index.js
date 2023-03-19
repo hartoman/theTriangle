@@ -16,6 +16,7 @@ function drawgraph() {
   ctx.fillStyle = "blue";
   ctx.fillRect(50, 50, 25, 25);
   drawCircle();
+  drawEquilateralTriangle(70,70,50);
  // createImage();
 }
 
@@ -35,4 +36,15 @@ function createImage() {
     },
     false
   );
+}
+
+function drawEquilateralTriangle(topX,topY, side){
+  let height = side * (Math.sqrt(3)/2);
+  ctx.beginPath();
+  ctx.moveTo(topX, topY);
+  ctx.lineTo(topX+(side/2), topY+height);
+  ctx.lineTo(topX-(side/2), topY+height);
+  ctx.lineTo(topX, topY);
+  ctx.fill();
+  ctx.closePath();
 }
