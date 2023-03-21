@@ -1,0 +1,4 @@
+//drawgraph();
+player.draw();
+animate();
+

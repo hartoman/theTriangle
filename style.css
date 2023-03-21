@@ -21,11 +21,13 @@ body {
 @media (orientation:landscape) {
     .container-sm {
         max-width: 30%;
+        height: 95vh;
     }
 }
 
 @media (orientation:portrait) {
     .container-sm {
         max-width: 100%;
+        height: 95vh;
     }
 }
