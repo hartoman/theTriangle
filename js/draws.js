@@ -1,3 +1,5 @@
+// this file contains the summarized functions to draw geometrical shapes
+
 // creates small square missile
 // ctx.fillRect(100,100,3,3);
 
@@ -11,9 +13,10 @@ function drawCircle(x, y, radius, color, borderColor) {
   ctx.stroke();
 }
 
-function createImage() {
+// creates an image from the source string e.g. "./images/sea.jpg"
+function createImage(source) {
   const img = new Image();
-  img.src = "./images/sea.jpg";
+  img.src = source;
   img.addEventListener(
     "load",
     () => {
@@ -23,21 +26,7 @@ function createImage() {
   );
 }
 
-function drawEquilateralTriangle(topX, topY, side, color, borderColor) {
-  ctx.fillStyle = color;
-  ctx.strokeStyle = borderColor;
-  let height = side * (Math.sqrt(3) / 2);
-  ctx.beginPath();
-  ctx.moveTo(topX, topY);
-  ctx.lineTo(topX + side / 2, topY + height);
-  ctx.lineTo(topX - side / 2, topY + height);
-  ctx.lineTo(topX, topY);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-}
-
-// more practical variation of the above 
+// creates equilateral triangle
 function drawTriangle(centerX, centerY, height, color, borderColor) {
   ctx.fillStyle = color;
   ctx.strokeStyle = borderColor;
@@ -54,6 +43,7 @@ function drawTriangle(centerX, centerY, height, color, borderColor) {
   ctx.stroke();
 }
 
+// sums up drawing a line
 function drawLine(startX, startY, endX, endY, color) {
   ctx.strokeStyle = color;
   ctx.moveTo(startX, startY);
@@ -61,6 +51,7 @@ function drawLine(startX, startY, endX, endY, color) {
   ctx.stroke();
 }
 
+// sums up drawing a square
 function drawSquare(x, y, side, color, borderColor) {
   ctx.fillStyle = borderColor;
   ctx.fillRect(x, y, side + 2, side + 2);
@@ -68,8 +59,8 @@ function drawSquare(x, y, side, color, borderColor) {
   ctx.fillRect(x + 1, y + 1, side, side);
 }
 
-
-function drawgraph() {
+// displays everything together for demonstration
+function drawDemo() {
     drawSquare(80,80,25,"red","white");
     drawCircle(10, 10, 15,"green","white");
     drawEquilateralTriangle(70, 70, 50,"blue","white");
