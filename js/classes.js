@@ -1,3 +1,8 @@
+// this file contains the needed classes for the sprites. player sprite is created here
+
+// basic size unit for the relative dimensions of the sprites
+const sizeUnit = canvas.width/100;
+
 class Sprite {
   constructor({ position, velocity, color, height, destination, speed }) {
     this.position = position;
@@ -10,8 +15,7 @@ class Sprite {
 
   // draws the sprite in a single frame
   draw() {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.position.x, this.position.y, 50, 50);
+    //TODO: FILL IN
   }
 
   // updates the position of the sprite at any animation frame
@@ -31,9 +35,13 @@ class Sprite {
         this.velocity.x = 0;
         this.velocity.y = 0;
       }
-      this.draw();
+
+      // calculates new position based on velocity
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
+
+      // redraws the sprite
+      this.draw();
     }
   }
 }
@@ -42,8 +50,9 @@ class Player extends Sprite {
   draw() {
     drawTriangle(this.position.x, this.position.y, this.height, this.color, "white");
   }
-
 }
+
+
 
 // creates the player sprite
 const player = new Player({
@@ -56,7 +65,7 @@ const player = new Player({
     y: 0,
   },
   color: "blue",
-  height: 50,
+  height: 10*sizeUnit,
   destination: {
     x: canvas.width / 2,
     y: canvas.height / 2,
